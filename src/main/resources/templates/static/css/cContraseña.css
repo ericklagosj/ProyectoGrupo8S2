@@ -1,0 +1,35 @@
+img{
+    position: static;
+}
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+     color: #fff;
+}
+body form{
+    justify-content: center;
+    display:grid;
+     background-color: #6376cb;
+     max-width: 400px;
+     margin: 20px auto;
+     border-radius: 5px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+button {
+    background-color: #5bc0de;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+  
+    background-color: #FFFA12;
+    border-radius: 3px;
+    border: 3px solid rgb(193, 124, 60);
+    
+}

@@ -1,6 +1,10 @@
-<h2>Cambiar Contraseña</h2>
+<link rel="stylesheet" href="static/css/cContraseña.css">
+<img src="static/img/descarga.png" alt="logo" class="logo">
+<body>
+   
 
 <form action="/usuario/guardarContrasena" method="post" th:object="${usuario}">
+     <h2>Cambiar Contraseña</h2>
     <input type="hidden" th:field="*{id}"/>
 
     <label for="nombre">Nombre de Usuario:</label>
@@ -17,3 +21,5 @@
 
     <button type="submit">Cambiar Contraseña</button>
 </form>
+
+</body>

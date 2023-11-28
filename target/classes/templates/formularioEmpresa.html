@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Empresa</title>
+</head>
+<body>
+
+<h2>Formulario de Empresa</h2>
+
+<form action="/empresa/guardarEmpresa" method="post" th:object="${empresa}">
+    <p>Id: <input type="text" th:field="*{id}"/></p>
+    <p>Nombre: <input type="text" th:field="*{nombre}"/></p>
+    <p>Telefono: <input type="text" th:field="*{telefono}"/></p>
+    <p>Direccion: <input type="text" th:field="*{direccion}"/></p>
+    <p>Correo: <input type="text" th:field="*{email}"/></p>
+    <p>ID CENS: <input type="text" th:field="*{id_cens}"/></p>
+    <p>ID Anexo Tec: <input type="text" th:field="*{id_anexo_tec}"/></p>
+    <p>Promedio AT: <input type="text" th:field="*{promedio_at}"/></p>
+    <p>Promedio CENS: <input type="text" th:field="*{promedio_cens}"/></p>
+    <button type="submit">Guardar</button>
+    <button type="button" onclick="location.href='/'">Cancelar</button>
+</form>
+</body>
+</html>

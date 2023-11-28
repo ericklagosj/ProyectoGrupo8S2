@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Empresas</title>
+</head>
+<body>
+
+<h2>Lista de Empresas</h2>
+
+<a href="/empresa/formulario">Crear Empresa</a>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Direccion</th>
+        <th>Telefono</th>
+        <th>Correo</th>
+        <th>ID CENS</th>
+        <th>ID Anexo Tec</th>
+        <th>Promedio AT</th>
+        <th>Promedio CENS</th>
+        <th>Acciones</th>
+    </tr>
+
+    <tr th:each="empresa : ${empresas}">
+        <td th:text="${empresa.id}"></td>
+        <td th:text="${empresa.nombre}"></td>
+        <td th:text="${empresa.direccion}"></td>
+        <td th:text="${empresa.telefono}"></td>
+        <td th:text="${empresa.email}"></td>
+        <td th:text="${empresa.id_cens}"></td>
+        <td th:text="${empresa.id_anexo_tec}"></td>
+        <td th:text="${empresa.promedio_at}"></td>
+        <td th:text="${empresa.promedio_cens}"></td>
+        <td>
+            <a th:href="@{/empresa/editar/{id}(id=${empresa.id})}">Editar</a>
+            <a th:href="@{/empresa/eliminar/{id}(id=${empresa.id})}">Eliminar</a>
+        </td>
+</table>
+
+<br>
+<button type="button" onclick="location.href='/'">Volver al inicio</button>
+
+
+</body>
+</html>
