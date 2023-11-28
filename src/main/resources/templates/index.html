@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Inicio</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <header>
+        <div id=h>
+            <img src="/img/descarga.png" alt="logo" class="logo">
+            <h2>Bienvenido al sistema de Grupo 8 S2</h2>
+        </div>
+        <div id="container">
+            <div id="j">
+                <p style="color:white">¡Has ingresado correctamente!</p>
+                <br>
+
+                <button type="button" onclick="location.href='/usuario/lista'">Usuarios</button>
+                <button type="button" onclick="location.href='/usuario/formulario'">Crear Usuario</button>
+                <button type="button" onclick="location.href='/empresa/lista'">Empresas</button>
+                <button type="button" onclick="location.href='/empresa/formulario'">Crear Empresa</button>
+            </div>
+        </div>
+    </header>
+</body>
+</html>
