@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Lista de Usuarios</title>
+    <link rel="stylesheet" type="text/css" href="static/css/ListU.css">
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .blue-header {
+            background-color: #007bff;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .imglogo {
+            width: 700px;
+
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .content {
+            max-width: 80%;
+            /* Reducido el tamaño del recuadro */
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 16px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        button.cancel {
+            background-color: #dc3545;
+            margin-right: 10px;
+        }
+
+        button.cancel:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="/img/logotipo-cens.png" class="imglogo" alt="Logo" />
+        <h1 class="ListE">Lista de Usuarios</h1>
+    </header>
+
+    <button type="button" onclick="location.href='/empresa/lista'">Empresas</button>
+    <button type="button" onclick="location.href='/evaluaciones/lista'">Evaluaciones</button>
+    <button type="button" onclick="location.href='/promedio/lista'">Promedios</button>
+    <button type="button" onclick="location.href='/usuario/formulario'">Crear Usuario</button>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Telefono</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+        </tr>
+
+        <tr th:each="usuario : ${usuarios}">
+            <td th:text="${usuario.id}"></td>
+            <td th:text="${usuario.nombre}"></td>
+            <td th:text="${usuario.apellido}"></td>
+            <td th:text="${usuario.email}"></td>
+            <td th:text="${usuario.telefono}"></td>
+            <td th:text="${usuario.rol}"></td>
+            <td>
+                <a th:href="@{/usuario/editarUsuario/{id}(id=${usuario.id})}">Editar</a>
+                <a th:href="@{/usuario/cambiarContrasena/{id}(id=${usuario.id})}">Cambiar Contraseña</a>
+                <form th:action="@{/usuario/enviarCredenciales/{id}(id=${usuario.id})}" method="post">
+                    <button type="submit">Enviar Credenciales</button>
+                </form>
+                <a th:href="@{/usuario/eliminarUsuario/{id}(id=${usuario.id})}"
+                    onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+    <button type="button" onclick="location.href='/'">Volver al inicio</button>
+
+</body>
+
+</html>
